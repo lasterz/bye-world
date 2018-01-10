@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>오수처리시설 원격관리 시스템</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />	
+<script src="./js/jquery-1.9.1.js"></script>
+<script src="./js/jquery-ui-1.10.4.custom.min.js"></script>
+<style>
+
+</style>
+<script>
+	$(function(){
+
+		$("#sample001").click(function(){ // 배전반 전력량계 layer sample
+			$("#sample001Layer").show();
+			var offset = $(this).offset();
+			$("#sample001Layer").css("left", offset.left+20);
+			$("#sample001Layer").css("top", offset.top);
+			
+			
+		});
+		$("#sample002").click(function(){ // 배전반 전력량계 layer sample
+			$("#sample002Layer").show();
+			var offset = $(this).offset();
+			$("#sample002Layer").css("left", offset.left+20);
+			if (offset.top >= $(document).height()*0.5)
+			{
+				$("#sample002Layer").css("top", offset.top-$("#sample002Layer").height());
+			} else {
+				$("#sample002Layer").css("top", offset.top);
+			}
+		});
+		$("#sample003").click(function(){ // 배전반 전력량계 layer sample
+			$("#sample003Layer").show();
+			var offset = $(this).offset();
+			$("#sample003Layer").css("left", offset.left+20);
+			if (offset.top >= $(document).height()*0.5)
+			{
+				$("#sample003Layer").css("top", offset.top-$("#sample003Layer").height());
+			} else {
+				$("#sample003Layer").css("top", offset.top);
+			}
+		});
+		$(".layer").draggable({
+			handle: "h1",
+			containment: "parent"
+			});
+		$(".layer .layer_close").click(function(){ // 공통 레이어 닫기
+			$("#mask").hide();
+			$(this).parent().parent().hide();
+		});
+	});
+	
+	function callPassword () {
+		$("#mask").show();
+		$("#passwordLayer").show();
+	}
+</script>
+</head>
+<body>
+<div id="wrap">
+	<a href="#" class="btn_max">최대화</a><!-- 최대화 후 btn_min 클래스를 추가함 -->
+	<header class="top">
+		<h1>안성(서울)</h1>
+		<div class="period">
+			<p>
+				<span>정주기 수집기간 :</span>
+				<span>2016-06-08 오전 12:12</span>
+			</p>
+			<p>
+				<span>이벤트 수집기간 :</span>
+				<span>2016-06-08 오전 12:12</span>
+			</p>
+		</div>
+		<div class="select_area">
+			<div class="item">
+				<label for="hq1">본부</label>
+				<select name="" id="hq1">
+					<option>수도권본부</option>
+				</select>
+			</div>
+			<div class="item">
+				<label for="branch">지사</label>
+				<select name="" id="branch">
+					<option>수원지사</option>
+				</select>
+			</div>
+			<div class="item">
+				<label for="restarea">휴게소</label>
+				<select name="" id="restarea">
+					<option>안성(서울)</option>
+				</select>
+			</div>
+			<a href="#" class="btn">이동</a>
+		</div>
+		<div class="count_area">
+			<span>정상(건)</span>
+			<strong class="green">61</strong>
+			<span>장애(건)</span>
+			<strong class="red">1</strong>
+			<span>이상(건)</span>
+			<strong class="yellow">1</strong>
+			<a href="#" class="btn disable">전체인지</a>
+		</div>
+	</header>
+	<div class="body_cont">
+		<div class="system_map">
+			<div class="inner">
+				<!-- 파이프 뒤에 노출되는 것은 순서 위로 -->
+				<span class="l_02" style="left:798px; top:412px"></span>
+				<span class="l_01" style="left:766px; top:412px"></span>
+				<span class="b_down end" style="left:275px; top:58px; height:52px;"></span>
+				<span class="b_down" style="left:93px; top:38px; height:219px;"></span>
+				<span class="b_down" style="left:102px; top:59px; height:226px;"></span>
+				<span class="b_left" style="left:699px; top:253px; width:98px"></span>
+				<span class="b_down" style="left:964px; top:312px; height:54px;"></span>
+				<span class="b_left" style="left:713px; top:209px; width:140px"></span>
+				<!-- pipe -->
+				<span class="down" style="left:706px; top:116px; height:5px;"></span>
+				<span class="down" style="left:167px; top:439px; height:43px;"></span>
+				<span class="down end" style="left:187px; top:83px; height:25px;"></span>
+				<span class="down" style="left:346px; top:83px; height:43px;"></span>
+				<span class="down" style="left:424px; top:45px; height:56px;"></span>
+				<span class="down" style="left:457px; top:45px; height:56px;"></span>
+				<span class="down" style="left:572px; top:43px; height:58px;"></span>
+				<span class="down" style="left:605px; top:43px; height:58px;"></span>
+				<span class="down end" style="left:614px; top:36px; height:38px;"></span>
+				<span class="down" style="left:639px; top:18px; height:111px;"></span>
+				<span class="down" style="left:646px; top:37px; height:121px;"></span>
+				<span class="down" style="left:689px; top:88px; height:31px;"></span>
+				<span class="down" style="left:753px; top:74px; height:40px;"></span>
+				<span class="down" style="left:787px; top:74px; height:62px;"></span>
+				<span class="down" style="left:794px; top:84px; height:58px;"></span>
+				<span class="down" style="left:772px; top:33px; height:30px;"></span>
+				<span class="down" style="left:772px; top:33px; height:30px;"></span>
+				<span class="down" style="left:813px; top:48px; height:11px;"></span>
+				<span class="down" style="left:588px; top:17px; height:13px;"></span>
+				<span class="down" style="left:939px; top:37px; height:16px;"></span>
+				<span class="down" style="left:918px; top:64px; height:36px;"></span>
+				<span class="down" style="left:961px; top:64px; height:15px;"></span>
+				<span class="down" style="left:1006px; top:20px; height:64px;"></span>
+				<span class="down" style="left:807px; top:137px; height:10px;"></span>
+				<span class="down" style="left:951px; top:122px; height:12px;"></span>
+				<span class="down" style="left:931px; top:148px; height:30px;"></span>
+				<span class="down" style="left:175px; top:185px; height:29px;"></span>
+				<span class="down end" style="left:235px; top:228px; height:22px;"></span>
+				<span class="down" style="left:369px; top:185px; height:52px;"></span>
+				<span class="down" style="left:396px; top:185px; height:139px;"></span>
+				<span class="down" style="left:415px; top:137px; height:169px;"></span>
+				<span class="down" style="left:448px; top:187px; height:119px;"></span>
+				<span class="down" style="left:479px; top:189px; height:117px;"></span>
+				<span class="down end" style="left:493px; top:142px; height:146px;"></span>
+				<span class="down end" style="left:548px; top:198px; height:94px;"></span>
+				<span class="down end" style="left:568px; top:187px; height:107px;"></span>
+				<span class="down end" style="left:662px; top:152px; height:140px;"></span>
+				<span class="down end" style="left:674px; top:167px; height:129px;"></span>
+				<span class="down end" style="left:769px; top:209px; height:92px;"></span>
+				<span class="down end" style="left:787px; top:228px; height:64px;"></span>
+
+				<span class="down" style="left:1073px; top:197px; height:339px;"></span>
+				<span class="down" style="left:1046px; top:328px; height:160px;"></span>
+				<span class="down" style="left:998px; top:430px; height:60px;"></span>
+				<span class="down" style="left:965px; top:430px; height:60px;"></span>
+				<span class="down" style="left:923px; top:408px; height:94px;"></span>
+				<span class="down" style="left:912px; top:430px; height:51px;"></span>
+				<span class="down" style="left:878px; top:430px; height:51px;"></span>
+				<span class="down" style="left:804px; top:421px; height:98px;"></span>
+				<span class="down" style="left:752px; top:436px; height:45px;"></span>
+				<span class="down" style="left:785px; top:436px; height:45px;"></span>
+				<span class="down" style="left:546px; top:440px; height:45px;"></span>
+				<span class="down" style="left:513px; top:440px; height:53px;"></span>
+				<span class="down" style="left:434px; top:383px; height:33px;"></span>
+				<span class="down" style="left:529px; top:383px; height:45px;"></span>
+				<span class="down end" style="left:422px; top:400px; height:73px;"></span>
+				<span class="down" style="left:397px; top:439px; height:54px;"></span>
+				<span class="down" style="left:364px; top:439px; height:54px;"></span>
+				<span class="down" style="left:404px; top:400px; height:15px;"></span>
+				<span class="down" style="left:380px; top:400px; height:27px;"></span>
+				<span class="down" style="left:247px; top:397px; height:30px;"></span>
+
+				<span class="down" style="left:166px; top:439px; height53:px;"></span>
+				<span class="down" style="left:200px; top:439px; height:53px;"></span>
+				<span class="down" style="left:231px; top:440px; height:53px;"></span>
+				<span class="down" style="left:264px; top:440px; height:53px;"></span>
+				<span class="down" style="left:617px; top:409px; height:14px;"></span>
+				<span class="down" style="left:768px; top:421px; height:3px;"></span>
+				<span class="down" style="left:895px; top:409px; height:9px;"></span>
+				<span class="down" style="left:981px; top:409px; height:9px;"></span>
+				<span class="down" style="left:183px; top:420px; height:6px;"></span>
+				<span class="down" style="left:103px; top:615px; height:22px;"></span>
+				<span class="down" style="left:128px; top:615px; height:22px;"></span>
+				<span class="down" style="left:53px; top:553px; height:42px;"></span>
+				<span class="down" style="left:94px; top:569px; height:19px;"></span>
+				<span class="down" style="left:120px; top:569px; height:19px;"></span>
+				<span class="down" style="left:194px; top:554px; height:40px;"></span>
+				<span class="down" style="left:280px; top:535px; height:7px;"></span>
+				<span class="down" style="left:359px; top:554px; height:44px;"></span>
+				<span class="down" style="left:437px; top:554px; height:17px;"></span>
+				<span class="down" style="left:390px; top:587px; height:11px;"></span>
+				<span class="down" style="left:234px; top:587px; height:11px;"></span>
+				<span class="down" style="left:417px; top:587px; height:11px;"></span>
+				<span class="down" style="left:260px; top:587px; height:11px;"></span>
+				<span class="down" style="left:242px; top:625px; height:9px;"></span>
+				<span class="down" style="left:399px; top:625px; height:9px;"></span>
+				<span class="down" style="left:267px; top:624px; height:9px;"></span>
+				<span class="down" style="left:424px; top:624px; height:9px;"></span>
+				<span class="down" style="left:520px; top:573px; height:50px;"></span>
+				<span class="down" style="left:553px; top:573px; height:50px;"></span>
+				<span class="down" style="left:536px; top:546px; height:14px;"></span>
+				<span class="down end" style="left:573px; top:534px; height:94px;"></span>
+				<span class="down end" style="left:600px; top:576px; height:50px;"></span>
+				<span class="down end" style="left:627px; top:576px; height:50px;"></span>
+				<span class="down end" style="left:652px; top:538px; height:94px;"></span>
+				<span class="down end" style="left:688px; top:532px; height:68px;"></span>
+				<span class="down end" style="left:714px; top:547px; height:54px;"></span>
+				<span class="down" style="left:893px; top:571px; height:51px;"></span>
+				<span class="down" style="left:927px; top:571px; height:51px;"></span>
+				<span class="down" style="left:911px; top:548px; height:11px;"></span>
+				<span class="down end" style="left:122px; top:161px; height:20px;"></span>
+				<span class="down" style="left:441px; top:22px; height:11px;"></span>
+				<span class="down" style="left:973px; top:147px; height:7px;"></span>
+				<span class="down" style="left:724px; top:388px; height:8px;"></span>
+				<span class="down" style="left:746px; top:385px; height:12px;"></span>
+
+				<span class="left" style="left:391px; top:392px; width:27px"></span>
+				<span class="left" style="left:824px; top:63px; width:10px"></span>
+				<span class="left" style="left:966px; top:75px; width:10px"></span>
+				<span class="left end2" style="left:423px; top:13px; width:13px"></span>
+				<span class="left" style="left:199px; top:74px; width:140px"></span>
+				<span class="left" style="left:338px; top:106px; width:6px"></span>
+				<span class="left" style="left:425px; top:161px; width:215px"></span>
+				<span class="left" style="left:426px; top:180px; width:137px"></span>
+				<span class="left" style="left:560px; top:189px; width:508px"></span>
+				<span class="left" style="left:503px; top:133px; width:130px"></span>
+				<span class="left" style="left:599px; top:9px; width:35px"></span>
+				<span class="left" style="left:624px; top:28px; width:19px"></span>
+				<span class="left" style="left:711px; top:11px; width:27px"></span>
+				<span class="left" style="left:720px; top:36px; width:20px"></span>
+				<span class="left" style="left:755px; top:26px; width:13px"></span>
+				<span class="left" style="left:804px; top:76px; width:22px"></span>
+				<span class="left" style="left:930px; top:56px; width:25px"></span>
+				<span class="left" style="left:170px; top:176px; width:17px"></span>
+				<span class="left" style="left:870px; top:30px; width:65px"></span>
+				<span class="left" style="left:718px; top:135px; width:71px"></span>
+				<span class="left" style="left:672px; top:145px; width:118px"></span>
+				<span class="left" style="left:684px; top:158px; width:142px"></span>
+				<span class="left" style="left:818px; top:128px; width:8px"></span>
+				<span class="left" style="left:818px; top:151px; width:8px"></span>
+				<span class="left" style="left:941px; top:139px; width:4px"></span>
+				<span class="left" style="left:942px; top:139px; width:25px"></span>
+				<span class="left" style="left:973px; top:155px; width:30px"></span>
+				<span class="left" style="left:931px; top:178px; width:73px"></span>
+				<span class="left" style="left:1020px; top:166px; width:16px"></span>
+				<span class="left" style="left:876px; top:113px; width:69px;"></span>
+				<span class="left" style="left:924px; top:100px; width:50px"></span>
+				<span class="left" style="left:992px; top:87px; width:8px"></span>
+				<span class="left" style="left:991px; top:12px; width:10px"></span>
+				<span class="left end2" style="left:753px; top:201px; width:117px"></span>
+				<span class="left end" style="left:798px; top:220px; width:111px"></span>
+				<span class="left" style="left:910px; top:321px; width:75px"></span>
+				<span class="left" style="left:82px; top:153px; width:34px"></span>
+				<span class="left" style="left:185px; top:219px; width:46px"></span>
+				<span class="left" style="left:356px; top:177px; width:34px"></span>
+				<span class="left" style="left:353px; top:241px; width:10px"></span>
+				<span class="left" style="left:1032px; top:493px; width:8px"></span>
+				<span class="left" style="left:699px; top:523px; width:100px"></span>
+				<span class="left" style="left:725px; top:539px; width:345px"></span>
+				<span class="left" style="left:939px; top:635px; width:121px"></span>
+				<span class="left" style="left:629px; top:401px; width:262px"></span>
+				<span class="left end" style="left:934px; top:401px; width:63px"></span>
+				<span class="left" style="left:444px; top:375px; width:81px"></span>
+				<span class="left" style="left:415px; top:418px; width:35px"></span>
+				<span class="left" style="left:63px; top:545px; width:369px"></span>
+				<span class="left" style="left:105px; top:560px; width:38px"></span>
+				<span class="left" style="left:155px; top:527px; width:122px"></span>
+				<span class="left" style="left:77px; top:641px; width:47px"></span>
+				<span class="left" style="left:224px; top:638px; width:38px"></span>
+				<span class="left" style="left:373px; top:637px; width:47px"></span>
+				<span class="left end" style="left:519px; top:538px; width:12px"></span>
+				<span class="left" style="left:530px; top:564px; width:18px"></span>
+				<span class="left" style="left:558px; top:526px; width:12px"></span>
+				<span class="left" style="left:637px; top:530px; width:13px"></span>
+				<span class="left" style="left:609px; top:569px; width:15px"></span>
+				<span class="left" style="left:245px; top:579px; width:30px"></span>
+				<span class="left" style="left:401px; top:579px; width:30px"></span>
+				<span class="left" style="left:178px; top:389px; width:17px"></span>
+				<span class="left" style="left:259px; top:390px; width:59px"></span>
+				<span class="left" style="left:176px; top:432px; width:20px"></span>
+				<span class="left" style="left:237px; top:432px; width:25px"></span>
+				<span class="left" style="left:374px; top:432px; width:20px"></span>
+				<span class="left" style="left:534px; top:432px; width:20px"></span>
+				<span class="left" style="left:762px; top:429px; width:20px"></span>
+				<span class="left" style="left:888px; top:422px; width:20px"></span>
+				<span class="left" style="left:974px; top:422px; width:20px"></span>
+				<span class="left" style="left:358px; top:129px; width:51px"></span>
+				<span class="left end2" style="left:705px; top:382px; width:16px"></span>
+				<span class="left end" style="left:756px; top:378px; width:13px"></span>
+				
+				<span class="down end" style="left:824px; top:209px; height:91px;"></span>
+				<span class="down end" style="left:875px; top:209px; height:87px;"></span>
+				<span class="down" style="left:1063px; top:312px; height:320px;"></span>
+
+				<span class="b_left" style="left:105px; top:29px; width:432px"></span>
+				<span class="b_left" style="left:113px; top:50px; width:157px"></span>
+				<span class="b_left" style="left:108px; top:332px; width:24px"></span>
+				<span class="b_left" style="left:144px; top:349px; width:540px"></span>
+				<span class="b_left" style="left:109px; top:364px; width:590px"></span>
+				<span class="b_left" style="left:98px; top:370px; width:860px"></span>
+				
+				
+				<span class="b_left" style="left:504px; top:413px; width:504px"></span>
+				<span class="b_left" style="left:96px; top:512px; width:545px"></span>
+				<span class="b_left" style="left:54px; top:368px; width:10px"></span>
+				<span class="b_left" style="left:54px; top:241px; width:10px"></span>
+				<span class="b_left" style="left:54px; top:273px; width:10px"></span>
+				<span class="b_left" style="left:54px; top:306px; width:10px"></span>
+				<span class="b_left" style="left:54px; top:332px; width:10px"></span>
+				<span class="b_left" style="left:975px; top:305px; width:10px"></span>
+				<span class="b_left" style="left:81px; top:260px; width:7px"></span>
+				<span class="b_left" style="left:82px; top:288px; width:14px"></span>
+				<span class="b_left" style="left:81px; top:350px; width:13px"></span>
+				<span class="b_left" style="left:69px; top:436px; width:13px"></span>
+
+				
+				<span class="b_down" style="left:146px; top:502px; height:6px;"></span>
+				<span class="b_down" style="left:402px; top:501px; height:7px;"></span>
+				<span class="b_down" style="left:135px; top:339px; height:7px;"></span>
+				<span class="b_down" style="left:703px; top:217px; height:142px;"></span>
+				<span class="b_down" style="left:688px; top:263px; height:83px;"></span>
+				<span class="b_down end" style="left:734px; top:262px; height:38px;"></span>
+				<span class="b_down end" style="left:802px; top:262px; height:39px;"></span>
+				<span class="b_down end" style="left:858px; top:217px; height:83px;"></span>
+				<span class="b_down end" style="left:155px; top:58px; height:51px;"></span>
+				<span class="b_down" style="left:646px; top:520px; height:82px;"></span>
+				<span class="b_down end" style="left:405px; top:37px; height:44px;"></span><!-- 마감 border 생기려면 end class추가 함 -->
+				<span class="b_down end" style="left:543px; top:37px; height:48px;"></span>
+				<span class="b_down end" style="left:493px; top:377px; height:91px;"></span>
+				<span class="b_down end" style="left:1012px; top:421px; height:40px;"></span>
+				<span class="b_down" style="left:86px; top:379px; height:130px;"></span>
+				<span class="b_down" style="left:98px; top:339px; height:20px;"></span>
+				<span class="b_down" style="left:70px; top:340px; height:25px;"></span>
+				<span class="b_down" style="left:587px; top:520px; height:81px;"></span>
+				<span class="b_down" style="left:70px; top:248px; height:54px;"></span>
+				<span class="b_down" style="left:60px; top:427px; height:23px;"></span>
+				<span class="b_down end" style="left:862px; top:421px; height:39px;"></span>
+
+				<span class="l_01" style="left:91px; top:28px"></span>
+				<span class="l_01" style="left:101px; top:49px"></span>
+				<span class="l_01" style="left:186px; top:73px"></span>
+				<span class="l_01" style="left:423px; top:36px"></span>
+				<span class="l_01" style="left:491px; top:133px"></span>
+				<span class="l_01" style="left:547px; top:189px"></span>
+				<span class="l_01" style="left:571px; top:34px"></span>
+				<span class="l_01" style="left:613px; top:28px"></span>
+				<span class="l_01" style="left:587px; top:9px"></span>
+				<span class="l_01" style="left:812px; top:39px"></span>
+				<span class="l_01" style="left:752px; top:65px"></span>
+				<span class="l_01" style="left:793px; top:76px"></span>
+				<span class="l_01" style="left:806px; top:127px"></span>
+				<span class="l_01" style="left:661px; top:144px"></span>
+				<span class="l_01" style="left:673px; top:158px"></span>
+				<span class="l_01" style="left:701px; top:208px"></span>
+				<span class="l_01" style="left:687px; top:253px"></span>
+				<span class="l_01" style="left:930px; top:138px"></span>
+				<span class="l_01" style="left:918px; top:56px"></span>
+				<span class="l_01" style="left:786px; top:219px"></span>
+				<span class="l_01" style="left:751px; top:428px"></span>
+				<span class="l_01" style="left:963px; top:304px"></span>
+				<span class="l_01" style="left:96px; top:331px"></span>
+				<span class="l_01" style="left:166px; top:430px"></span>
+				<span class="l_01" style="left:230px; top:430px"></span>
+				<span class="l_01" style="left:363px; top:430px"></span>
+				<span class="l_01" style="left:379px; top:391px"></span>
+				<span class="l_01" style="left:433px; top:375px"></span>
+				<span class="l_01" style="left:512px; top:431px"></span>
+				<span class="l_01" style="left:687px; top:523px"></span>
+				<span class="l_01" style="left:713px; top:538px"></span>
+				<span class="l_01" style="left:893px; top:563px"></span>
+				<span class="l_01" style="left:877px; top:421px"></span>
+				<span class="l_01" style="left:922px; top:400px"></span>
+				<span class="l_01" style="left:964px; top:421px"></span>
+				<span class="l_01" style="left:616px; top:400px"></span>
+				<span class="l_01" style="left:85px; top:370px"></span>
+
+				<span class="l_01" style="left:93px; top:560px"></span>
+				<span class="l_01" style="left:233px; top:579px"></span>
+				<span class="l_01" style="left:389px; top:578px"></span>
+				<span class="l_01" style="left:518px; top:564px"></span>
+				<span class="l_01" style="left:598px; top:568px"></span>
+				<span class="l_01" style="left:744px; top:377px"></span>
+				<span class="l_01" style="left:51px; top:545px"></span>
+				<span class="l_01" style="left:246px; top:389px"></span>
+				<span class="l_01" style="left:705px; top:106px"></span>
+
+				<span class="l_02" style="left:434px; top:12px"></span>
+				<span class="l_02" style="left:269px; top:49px"></span>
+				<span class="l_02" style="left:116px; top:152px"></span>
+				<span class="l_02" style="left:63px; top:239px"></span>
+				<span class="l_02" style="left:64px; top:332px"></span>
+				<span class="l_02" style="left:130px; top:330px"></span>
+				<span class="l_02" style="left:189px; top:388px"></span>
+				<span class="l_02" style="left:416px; top:390px"></span>
+				<span class="l_02" style="left:523px; top:374px"></span>
+				<span class="l_02" style="left:540px; top:431px"></span>
+				<span class="l_02" style="left:718px; top:380px"></span>
+				<span class="l_02" style="left:796px; top:253px"></span>
+				<span class="l_02" style="left:851px; top:208px"></span>
+				<span class="l_02" style="left:869px; top:200px"></span>
+				<span class="l_02" style="left:967px; top:138px"></span>
+				<span class="l_02" style="left:945px; top:112px"></span>
+				<span class="l_02" style="left:955px; top:56px"></span>
+				<span class="l_02" style="left:975px; top:74px"></span>
+				<span class="l_02" style="left:934px; top:30px"></span>
+				<span class="l_02" style="left:1000px; top:11px"></span>
+				<span class="l_02" style="left:1002px; top:153px"></span>
+				<span class="l_02" style="left:1067px; top:187px"></span>
+				<span class="l_02" style="left:1057px; top:304px"></span>
+				<span class="l_02" style="left:1007px; top:412px"></span>
+				<span class="l_02" style="left:991px; top:421px"></span>
+				<span class="l_02" style="left:920px; top:563px"></span>
+				<span class="l_02" style="left:780px; top:428px"></span>
+				<span class="l_02" style="left:889px; top:400px"></span>
+				<span class="l_02" style="left:907px; top:422px"></span>
+
+				<span class="l_02" style="left:339px; top:73px"></span>
+				<span class="l_02" style="left:409px; top:128px"></span>
+				<span class="l_02" style="left:452px; top:37px"></span>
+				<span class="l_02" style="left:536px; top:28px"></span>
+				<span class="l_02" style="left:599px; top:34px"></span>
+				<span class="l_02" style="left:640px; top:27px"></span>
+				<span class="l_02" style="left:633px; top:9px"></span>
+				<span class="l_02" style="left:738px; top:10px"></span>
+				<span class="l_02" style="left:766px; top:24px"></span>
+				<span class="l_02" style="left:781px; top:66px"></span>
+				<span class="l_02" style="left:229px; top:218px"></span>
+				<span class="l_02" style="left:390px; top:176px"></span>
+				<span class="l_02" style="left:562px; top:179px"></span>
+				<span class="l_02" style="left:194px; top:430px"></span>
+				<span class="l_02" style="left:258px; top:431px"></span>
+				<span class="l_02" style="left:391px; top:430px"></span>
+				<span class="l_02" style="left:640px; top:511px"></span>
+				<span class="l_02" style="left:646px; top:529px"></span>
+				<span class="l_02" style="left:567px; top:525px"></span>
+				<span class="l_02" style="left:546px; top:564px"></span>
+				<span class="l_02" style="left:621px; top:568px"></span>
+				<span class="l_02" style="left:430px; top:544px"></span>
+				<span class="l_02" style="left:274px; top:527px"></span>
+				<span class="l_02" style="left:54px; top:418px"></span>
+				<span class="l_02" style="left:530px; top:537px"></span>
+				<span class="l_02" style="left:683px; top:80px"></span>
+
+				<span class="l_03" style="left:345px; top:125px"></span>
+				<span class="l_03" style="left:688px; top:117px"></span>
+				<span class="l_03" style="left:706px; top:130px"></span>
+				<span class="l_03" style="left:806px; top:147px"></span>
+				<span class="l_03" style="left:173px; top:214px"></span>
+				<span class="l_03" style="left:403px; top:414px"></span>
+				<span class="l_03" style="left:84px; top:508px"></span>
+				<span class="l_03" style="left:812px; top:59px"></span>
+				<span class="l_03" style="left:97px; top:359px"></span>
+				<span class="l_03" style="left:133px; top:344px"></span>
+
+				<span class="l_04" style="left:87px; top:256px"></span>
+				<span class="l_04" style="left:96px; top:284px"></span>
+				<span class="l_04" style="left:63px; top:302px"></span>
+				<span class="l_04" style="left:64px; top:364px"></span>
+				<span class="l_04" style="left:54px; top:450px"></span>
+				<span class="l_04" style="left:1040px; top:488px"></span>
+				<span class="l_04" style="left:122px; top:637px"></span>
+				<span class="l_04" style="left:261px; top:633px"></span>
+				<span class="l_04" style="left:418px; top:633px"></span>
+				<span class="l_04" style="left:682px; top:345px"></span>
+				<span class="l_04" style="left:697px; top:359px"></span>
+				<span class="l_04" style="left:958px; top:366px"></span>
+				<span class="l_04" style="left:798px; top:519px"></span>
+				<span class="l_04" style="left:974px; top:95px"></span>
+				<span class="l_04" style="left:633px; top:129px"></span>
+				<span class="l_04" style="left:640px; top:157px"></span>
+				<span class="l_04" style="left:1004px; top:175px"></span>
+				<span class="l_04" style="left:1000px; top:83px"></span>
+				<span class="l_04" style="left:739px; top:32px"></span>
+				<span class="l_04" style="left:1057px; top:631px"></span>
+				<span class="l_04" style="left:788px; top:141px"></span>
+				<span class="l_04" style="left:363px; top:237px"></span>
+				<span class="l_04" style="left:1067px; top:535px"></span>
+
+				<span class="t_01" style="left:69px; top:254px"></span>
+				<span class="t_01" style="left:69px; top:284px"></span>
+				<span class="t_01" style="left:69px; top:345px"></span>
+				<span class="t_01" style="left:59px; top:432px"></span>
+				<span class="t_01" style="left:413px; top:157px"></span>
+				<span class="t_01" style="left:414px; top:175px"></span>
+				<span class="t_01" style="left:743px; top:20px"></span>
+				<span class="t_01" style="left:1008px; top:161px"></span>
+				<span class="t_01" style="left:979px; top:83px"></span>
+				<span class="t_01" style="left:492px; top:409px"></span>
+
+				<span class="t_02" style="left:93px; top:346px"></span>
+				<span class="t_02" style="left:342px; top:102px"></span>
+				<span class="t_02" style="left:701px; top:118px"></span>
+				<span class="t_02" style="left:81px; top:432px"></span>
+				<span class="t_02" style="left:64px; top:269px"></span>
+
+				
+				<span class="t_03" style="left:149px; top:50px"></span>
+				<span class="t_03" style="left:169px; top:176px"></span>
+				<span class="t_03" style="left:442px; top:179px"></span>
+				<span class="t_03" style="left:474px; top:179px"></span>
+				<span class="t_03" style="left:763px; top:201px"></span>
+				<span class="t_03" style="left:818px; top:201px"></span>
+				<span class="t_03" style="left:254px; top:578px"></span>
+				<span class="t_03" style="left:189px; top:545px"></span>
+				<span class="t_03" style="left:114px; top:560px"></span>
+				<span class="t_03" style="left:410px; top:578px"></span>
+				<span class="t_03" style="left:398px; top:391px"></span>
+				<span class="t_03" style="left:856px; top:412px"></span>
+				<span class="t_03" style="left:976px; top:400px"></span>
+				<span class="t_03" style="left:399px; top:28px"></span>
+				<span class="t_03" style="left:362px; top:176px"></span>
+				<span class="t_03" style="left:728px; top:253px"></span>
+				<span class="t_03" style="left:905px; top:539px"></span>
+				<span class="t_03" style="left:487px; top:368px"></span>
+				<span class="t_03" style="left:353px; top:545px"></span>
+				<span class="t_03" style="left:581px; top:511px"></span>
+
+				<span class="t_04" style="left:435px; top:33px"></span>
+				<span class="t_04" style="left:581px; top:30px"></span>
+				<span class="t_04" style="left:764px; top:62px"></span>
+				<span class="t_04" style="left:934px; top:52px"></span>
+				<span class="t_04" style="left:946px; top:134px"></span>
+				<span class="t_04" style="left:762px; top:424px"></span>
+				<span class="t_04" style="left:889px; top:418px"></span>
+				<span class="t_04" style="left:975px; top:419px"></span>
+				<span class="t_04" style="left:718px; top:396px"></span>
+				<span class="t_04" style="left:739px; top:396px"></span>
+				<span class="t_04" style="left:524px; top:427px"></span>
+				<span class="t_04" style="left:375px; top:426px"></span>
+				<span class="t_04" style="left:428px; top:414px"></span>
+				<span class="t_04" style="left:176px; top:426px"></span>
+				<span class="t_04" style="left:240px; top:427px"></span>
+				<span class="t_04" style="left:274px; top:541px"></span>
+				<span class="t_04" style="left:393px; top:633px"></span>
+				<span class="t_04" style="left:97px; top:637px"></span>
+				<span class="t_04" style="left:236px; top:633px"></span>
+				<span class="t_04" style="left:904px; top:559px"></span>
+				<span class="t_04" style="left:529px; top:560px"></span>
+				<span class="t_04" style="left:141px; top:508px"></span>
+				<span class="t_04" style="left:396px; top:508px"></span>
+
+				<span class="from" style="left:669px; top:5px"></span>
+				<span class="from" style="left:677px; top:26px"></span>
+				<span class="from" style="left:1034px; top:158px"></span>
+				<span class="from_s" style="left:520px; top:519px"></span>
+				<span class="from_s" style="left:600px; top:524px"></span>
+
+				<span class="to" style="left:946px; top:5px"></span>
+				<span class="to_s" style="left:447px; top:413px"></span>
+				<span class="to_s" style="left:141px; top:555px"></span>
+				<span class="to_s" style="left:274px; top:572px"></span>
+				<span class="to_s" style="left:429px; top:572px"></span>
+				<span class="to_ss" style="left:652px; top:75px"></span>
+				
+				
+				
+				
+				<!-- //pipe -->
+				<span class="bolt cr" style="left:26px; top:75px" id="sample001"></span>
+
+				<span class="a05_4" style="left:372px; top:63px; width:119px; height:56px"></span>
+				<span class="p05_1_left" style="left:422px; top:85px;"></span>
+				<span class="p05_1_left" style="left:454px; top:85px;"></span>
+				<span class="a01_3" style="left:499px; top:50px; width:135px; height:69px"></span>
+				<span class="p05_1_left" style="left:570px; top:85px;"></span>
+				<span class="p05_1_left" style="left:600px; top:85px;"></span>
+
+				
+				<span class="a01" style="left:115px; top:96px; width:107px; height:42px"></span>
+				<span class="a01" style="left:231px; top:96px; width:107px; height:42px"></span>
+
+				<span class="b01" style="left:109px; top:164px; width:61px; height:46px"></span>
+				<span class="b02" style="left:187px; top:164px; width:96px; height:37px"></span>
+				<span class="b05" style="left:282px; top:153px; width:78px; height:77px"></span>
+				<span class="b02" style="left:184px; top:231px; width:96px; height:37px"></span>
+				<span class="b05" style="left:281px; top:222px; width:73px; height:67px"></span>
+				
+				<span class="b01" style="left:538px; top:279px; width:66px; height:50px"></span>
+				<span class="b01" style="left:619px; top:279px; width:66px; height:50px"></span>
+				<span class="b01" style="left:712px; top:283px; width:66px; height:46px"></span>
+				<span class="b01" style="left:778px; top:283px; width:65px; height:45px"></span>
+				<span class="b01" style="left:845px; top:283px; width:65px; height:45px"></span>
+				
+				<span class="c02b" style="left:703px; top:447px; width:95px; height:54px"></span>
+				<span class="c02b" style="left:490px; top:587px; width:120px; height:55px"></span>
+				<span class="c02b" style="left:619px; top:588px; width:110px; height:55px"></span>
+				<span class="c02" style="left:831px; top:588px; width:109px; height:51px"></span>
+
+				<span class="dm" style="left:883px; top:24px">0.0</span>
+				<span class="dm" style="left:880px; top:107px">0.0</span>
+				<span class="dm" style="left:509px; top:166px">0.0</span>
+				<span class="dm" style="left:303px; top:202px">0.0</span>
+				<span class="dm" style="left:173px; top:397px">0.0</span>
+				<span class="dm" style="left:262px; top:378px">0.0</span>
+				<span class="dm" style="left:804px; top:386px">0.0</span>
+				<span class="dm" style="left:984px; top:526px">0.0</span>
+				<span class="blower01" style="left:7px; top:237px"></span>
+				<span class="blower01" style="left:7px; top:263px"></span>
+				<span class="blower01" style="left:7px; top:291px"></span>
+				<span class="blower02" style="left:7px; top:326px"></span>
+				<span class="blower01" style="left:7px; top:355px"></span>
+				<span class="blower01" style="left:7px; top:413px"></span>
+				<span class="blower01" style="left:7px; top:447px"></span>
+				<span class="text" style="left:30px; top:149px">오수 ▶</span>
+				<span class="text" style="left:12px; top:384px">폭기조블로어</span>
+				<span class="text" style="left:3px; top:476px">기타수조블로어</span>
+				<span class="text" style="left:121px; top:521px">상수▶</span>
+				
+				<span class="text" style="left:510px; top:651px">슬러지저류조</span>
+				<span class="text" style="left:640px; top:651px">슬러지농죽조</span>
+				<span class="text" style="left:847px; top:651px">슬러지인줄조#1</span>
+				<span class="text" style="left:440px; top:536px">◀슬러지반출구</span>
+
+				<span class="text" style="left:176px; top:501px">소독, 밤류조</span>
+				<span class="text" style="left:351px; top:501px">역세조</span>
+				<span class="text" style="left:477px; top:501px">여과수조</span>
+				<span class="text" style="left:710px; top:501px">슬러지인출조#2</span>
+				<span class="text" style="left:858px; top:501px">응집이송조</span>
+				<span class="text" style="left:965px; top:501px">소포조</span>
+				
+				<span class="text" style="left:100px; top:385px">◀중수저장조</span>
+				<span class="text" style="left:320px; top:385px">방류▶</span>
+				<span class="text" style="left:642px; top:376px">POLYMER▶</span>
+				<span class="text" style="left:773px; top:373px">◀PAC</span>
+				<span class="text" style="left:999px; top:396px">소포수▶</span>
+				
+				<span class="text" style="left:12px; top:222px">유량용블로어</span>
+				<span class="text" style="left:118px; top:213px">침사조</span>
+				<span class="text" style="left:213px; top:275px">스크린조</span>
+				<span class="text" style="left:406px; top:331px">유량조정조</span>
+				<span class="text" style="left:550px; top:331px">혐기조1</span>
+				<span class="text" style="left:632px; top:331px">무산소조1</span>
+				<span class="text" style="left:722px; top:331px">폭기조#1</span>
+				<span class="text" style="left:790px; top:331px">폭기조#2</span>
+				<span class="text" style="left:855px; top:331px">폭기조#3</span>
+				<span class="text" style="left:1009px; top:331px">침전조</span>
+				<span class="text" style="left:685px; top:194px">P_03A/B▶</span>
+				<span class="text" style="left:915px; top:215px">◀ALKALINITY</span>
+
+				<span class="text" style="left:312px; top:8px">◀휴게소중수저장조</span>
+				<span class="text" style="left:386px; top:114px">(기존 중수저장조)</span>
+				<span class="text" style="left:528px; top:115px">(기존 유량조정조)</span>
+				
+				<span class="tank02_2" style="left:15px; top:585px"></span>
+				<span class="tank01_1" style="left:158px; top:595px"></span>
+				<span class="tank02_2" style="left:312px; top:582px"></span>
+				<span class="text" style="left:18px; top:651px">ALKALINITY</span>
+				<span class="text" style="left:186px; top:651px">PAC</span>
+				<span class="text" style="left:320px; top:651px">POLYMER</span>
+
+				<span class="ag_d01" style="left:65px; top:573px;"></span>
+				<span class="ag_d02" style="left:364px; top:568px;"></span>
+
+				<span class="pump_1" style="left:85px; top:588px; -ms-transform: rotate(90deg); /* IE 9 */
+				-webkit-transform: rotate(90deg); /* Safari */ transform: rotate(90deg); width:27px; height:27px;"></span>
+				<span class="pump_1" style="left:110px; top:588px; -ms-transform: rotate(90deg); /* IE 9 */
+				-webkit-transform: rotate(90deg); /* Safari */ transform: rotate(90deg); width:27px; height:27px;"></span>
+				<span class="pump_1" style="left:225px; top:598px; -ms-transform: rotate(90deg); /* IE 9 */
+				-webkit-transform: rotate(90deg); /* Safari */ transform: rotate(90deg); width:27px; height:27px;"></span>
+				<span class="pump_2 cr" style="left:250px; top:598px; -ms-transform: rotate(90deg); /* IE 9 */
+				-webkit-transform: rotate(90deg); /* Safari */ transform: rotate(90deg); width:27px; height:27px;" id="sample003"></span>
+				<span class="pump_1" style="left:381px; top:598px; -ms-transform: rotate(90deg); /* IE 9 */
+				-webkit-transform: rotate(90deg); /* Safari */ transform: rotate(90deg); width:27px; height:27px;"></span>
+				<span class="pump_2" style="left:406px; top:598px; -ms-transform: rotate(90deg); /* IE 9 */
+				-webkit-transform: rotate(90deg); /* Safari */ transform: rotate(90deg); width:27px; height:27px;"></span>
+
+				<span class="text" style="left:150px; top:557px">E</span>
+				<span class="text" style="left:282px; top:574px">B</span>
+				<span class="text" style="left:437px; top:574px">A</span>
+
+				<span class="p05_1" style="left:497px; top:613px;"></span>
+				<span class="p05_1" style="left:529px; top:613px;"></span>
+				<span class="p05_2" style="left:871px; top:613px;"></span>
+				<span class="p05_2" style="left:523px; top:472px;"></span>
+				<span class="p05_1 cr" style="left:904px; top:613px;" id="sample002"></span>
+
+				<span class="text" style="left:544px; top:520px">A</span>
+				<span class="text" style="left:623px; top:524px">A</span>
+				
+				<span class="valve_1" style="left:843px; top:527px;"></span>
+				<span class="valve_2" style="left:934px; top:527px;"></span>
+				
+				<span class="text" style="left:594px; top:501px">응집침전조</span>
+				<span class="a03" style="left:578px; top:442px; height:61px"></span>
+				<span class="ag02_2" style="left:606px; top:422px;"></span>
+				
+				<span class="a05_3" style="left:98px; top:450px; width:200px; height:55px"></span>
+				<span class="p05_1_left" style="left:164px; top:471px; "></span>
+				<span class="p05_1_left" style="left:197px; top:471px; "></span>
+				<span class="p05_1_left" style="left:229px; top:471px; "></span>
+				<span class="p05_1_left" style="left:260px; top:471px; "></span>
+				<span class="a05_3" style="left:300px; top:450px; width:142px; height:55px"></span>
+				<span class="p05_1" style="left:342px; top:471px; "></span>
+				<span class="p05_1" style="left:374px; top:471px; "></span>
+				<span class="a05_4" style="left:446px; top:450px; width:114px; height:55px"></span>
+				<span class="p05_1" style="left:489px; top:471px; "></span>
+				<span class="p05_1" style="left:728px; top:471px; "></span>
+				<span class="p05_1" style="left:762px; top:471px; "></span>
+				
+				<span class="a01_4" style="left:826px; top:450px; width:108px; height:54px"></span>
+				<span class="p05_1" style="left:856px; top:471px; "></span>
+				<span class="p05_2" style="left:888px; top:471px; "></span>
+
+				<span class="a05_4" style="left:937px; top:450px; width:96px; height:54px"></span>
+				<span class="p05_2_left" style="left:962px; top:471px; "></span>
+				<span class="p05_2_left" style="left:995px; top:471px; "></span>
+				<span class="text" style="left:455px; top:414px; ">A</span>
+				
+				<span class="a05_1" style="left:334px; top:260px; width:179px; height:67px"></span>
+
+				<span class="p02_2" style="left:373px; top:272px;"></span>
+				<span class="p02_1" style="left:373px; top:286px;"></span>
+				<span class="p02_2" style="left:373px; top:299px;"></span>
+				<span class="p02_2" style="left:373px; top:310px;"></span>
+				<span class="p05_2_left" style="left:412px; top:295px; "></span>
+				<span class="p05_1_left" style="left:444px; top:295px; "></span>
+				<span class="p05_1_left" style="left:476px; top:295px; "></span>
+
+				<span class="p03_2" style="left:570px; top:292px; "></span>
+				<span class="p02_2" style="left:634px; top:306px;width:33px; height:19px;"></span>
+				<span class="p01_1" style="left:734px; top:306px;width:33px; height:19px;"></span>
+				<span class="p01_1" style="left:800px; top:306px;width:33px; height:19px;"></span>
+				<span class="p01_1" style="left:867px; top:306px;width:33px; height:19px;"></span>
+				
+				<span class="a03" style="left:984px; top:266px; height:63px"></span>
+				<span class="ag02_2" style="left:1012px; top:248px"></span>
+				<span class="phdo" style="left:907px; top:258px"></span>
+				<span class="text_white" style="left:920px; top:271px">7.71</span>
+				<span class="text_white" style="left:920px; top:299px">7.71</span>
+				
+				<span class="text" style="left:659px; top:76px">A</span>
+				<span class="text" style="left:690px; top:8px">E#3</span>
+				<span class="text" style="left:699px; top:30px">E#3</span>
+				<span class="text" style="left:953px; top:8px">E#3</span>
+				<span class="text" style="left:1055px; top:161px">E#3</span>
+				
+				<span class="motor_4" style="left:718px; top:100px"></span>
+				<span class="motor_4" style="left:752px; top:128px"></span>
+
+				<span class="motor_4" style="left:883px; top:90px"></span>
+				<span class="motor_4" style="left:927px; top:70px"></span>
+				<span class="motor_4" style="left:896px; top:170px"></span>
+				<span class="motor_4" style="left:939px; top:154px"></span>
+
+				<span class="hos" style="left:826px; top:25px"></span>
+				<span class="hos" style="left:826px; top:60px"></span>
+				<span class="hos" style="left:826px; top:110px"></span>
+				<span class="hos" style="left:826px; top:146px"></span>
+
+				<span class="hos" style="left:826px; top:25px"></span>
+
+				<span class="fan2_5" style="left:1021px; top:24px"></span>
+				<span class="fan_5" style="left:1021px; top:89px"></span>
+				<span class="text" style="left:1020px; top:60px">급기팬</span>
+				<span class="text" style="left:1030px; top:125px">배기팬</span>
+
+
+
+			</div>
+		</div>
+		<div class="system_info">
+			<ul>
+				<li><span>네트워크</span><strong class="green">정상</strong></li><!-- red, yellow class 있음 -->
+				<li><span>통신망</span><strong>CMDA</strong></li>
+				<li><span>PLC</span><strong class="green">정상</strong></li><!-- red, yellow class 있음 -->
+			</ul>
+
+			<div class="equip_list equip_list01"><!-- 기기별 상태 -->
+				<div class="header clear">
+					<strong class="title">기기명</strong>
+					<strong class="status">상태</strong>
+				</div>
+				<ul>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status stop">정지</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status play">가동</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status stop">정지</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status play">가동</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status stop">정지</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status play">가동</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status stop">정지</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status play">가동</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status stop">정지</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status play">가동</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status stop">정지</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status play">가동</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status stop">정지</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status play">가동</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status stop">정지</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status play">가동</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status stop">정지</span>
+					</li>
+					<li class="clear">
+						<span class="title">원수펌프A</span>
+						<span class="status play">가동</span>
+					</li>
+				</ul>
+			</div><!-- //기기별 상태 -->
+
+			<div class="equip_list equip_list02"><!-- 계측기 값 -->
+				<div class="header clear">
+					<strong class="title">계측기</strong>
+					<strong class="status">값</strong>
+				</div>
+				<ul>
+					<li class="clear">
+						<span class="title">파샬프롬조 유량계</span>
+						<span class="status">54.0</span>
+					</li>
+					<li class="clear">
+						<span class="title">유량조 유량계</span>
+						<span class="status">54.0</span>
+					</li>
+					<li class="clear">
+						<span class="title">파샬프롬조 유량계</span>
+						<span class="status">54.0</span>
+					</li>
+					<li class="clear">
+						<span class="title">유량조 유량계</span>
+						<span class="status">54.0</span>
+					</li><li class="clear">
+						<span class="title">파샬프롬조 유량계</span>
+						<span class="status">54.0</span>
+					</li>
+					<li class="clear">
+						<span class="title">유량조 유량계</span>
+						<span class="status">54.0</span>
+					</li>
+					<li class="clear">
+						<span class="title">파샬프롬조 유량계</span>
+						<span class="status">54.0</span>
+					</li>
+					<li class="clear">
+						<span class="title">유량조 유량계</span>
+						<span class="status">54.0</span>
+					</li>
+					<li class="clear">
+						<span class="title">파샬프롬조 유량계</span>
+						<span class="status">54.0</span>
+					</li>
+					<li class="clear">
+						<span class="title">유량조 유량계</span>
+						<span class="status">54.0</span>
+					</li>
+				</ul>
+			</div><!-- //계측기 값 -->
+
+			<div class="equip_list equip_list03"><!-- 레벨스위치 수위 -->
+				<div class="header clear">
+					<strong class="title">레벨스위치</strong>
+					<strong class="status">수위</strong>
+				</div>
+				<ul>
+					<li class="clear">
+						<span class="title">유량조 레벨스위치</span>
+						<span class="status stop">-</span>
+					</li>
+					
+				</ul>
+			</div><!-- //계측기 값 -->
+		</div>
+	</div>
+</div>
+
+<div id="mask"></div>
+<div class="layer" id=""><!-- 급기팬 -->
+	<div class="layer_wrap">
+			<h1>급기팬</h1>
+		<div class="layer_body">
+
+			<div class="clear">
+				<div class="img_title">
+					<div class="img_area">	 
+						<img src="./img/FAN2_1.png" style="" alt="" />
+					</div>
+					<div class="title">
+						F_01
+					</div>
+				</div>
+				<div class="infozone_01">
+					<table>
+						<colgroup>
+							<col style="width:40%">
+							<col style="width:auto">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>경보 상태</th>
+								<td><a href="#" class="off">인지</a></td>
+							</tr>
+							<tr>
+								<th>동작 상태</th>
+								<td><strong class="green">정상</strong></td>
+							</tr>
+							<tr>
+								<th>운영 상태</th>
+								<td><strong class="green">운전중</strong></td>
+							</tr>
+							<tr>
+								<th>운전 모드</th>
+								<td><strong class="">자동</strong></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="infozone_02 mt10">
+				<table>
+					<colgroup>
+							<col style="width:30%">
+							<col style="width:auto">
+						</colgroup>
+					<tbody>
+						<tr>
+							<th>운전 제어</th>
+							<td>
+								<a href="#" class="off">운전</a>
+								<a href="#" class="on">정지</a>
+							</td>
+						</tr>
+						<tr>
+							<th>모드 제어</th>
+							<td>
+								<a href="#" class="on">수동</a>
+								<a href="#" class="off">자동</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="infozone_03 mt10">
+				<table>
+					<thead>
+						<tr>
+							<th>가동 시간 (분)</th>
+							<th>정지 시간 (분)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<a href="#" class="on">설정</a>
+								<input type="text" name="">
+							</td>
+							<td>
+								<a href="#" class="on">설정</a>
+								<input type="text" name="">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="txt">경과</span>
+								<span class="in_txt">5</span>
+							</td>
+							<td>
+								<span class="txt">경과</span>
+								<span class="in_txt">5</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="btn_area">
+				<a href="#">순시조회</a>
+				<a href="#">운영조회</a>
+			</div>
+		</div>
+		<a href="#" class="layer_close">Close</a>
+	</div>
+</div><!-- //급기팬 -->
+
+<div class="layer" id="sample002Layer"><!-- 잔류질소 유량계 -->
+	<div class="layer_wrap">
+			<h1>잔류질소#1 유량계B</h1>
+		<div class="layer_body">
+
+			<div class="clear">
+				<div class="img_title">
+					<div class="img_area">	 
+						<img src="./img/FM.png" style="" alt="" />
+					</div>
+					<div class="title">
+						FM_01B
+					</div>
+				</div>
+				<div class="infozone_01">
+					<table>
+						<colgroup>
+							<col style="width:50%">
+							<col style="width:auto">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>경보 상태</th>
+								<td><a href="#" class="off">인지</a></td>
+							</tr>
+							<tr>
+								<th>유량 속도</th>
+								<td><strong class="">0.00</strong></td>
+							</tr>
+							<tr>
+								<th>금일 유량(t)</th>
+								<td><strong class="">0.00</strong></td>
+							</tr>
+							<tr>
+								<th>금월 유량(t)</th>
+								<td><strong class="">0.00</strong></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="btn_area">
+				<a href="#">순시조회</a>
+				<a href="#">운영조회</a>
+			</div>
+		</div>
+		<a href="#" class="layer_close">Close</a>
+	</div>
+</div><!-- //잔류질소 유량계 -->
+
+<div class="layer" id=""><!-- 내부반송펌프B -->
+	<div class="layer_wrap">
+			<h1>내부반송펌프B</h1>
+		<div class="layer_body">
+
+			<div class="clear">
+				<div class="img_title">
+					<div class="img_area">	 
+						<img src="./img/MOTOR_1.png" style="" alt="" />
+					</div>
+					<div class="title">
+						P_02B
+					</div>
+				</div>
+				<div class="infozone_01">
+					<table>
+						<colgroup>
+							<col style="width:40%">
+							<col style="width:auto">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>경보 상태</th>
+								<td><a href="#" class="off">인지</a></td>
+							</tr>
+							<tr>
+								<th>동작 상태</th>
+								<td><strong class="green">정상</strong></td>
+							</tr>
+							<tr>
+								<th>운영 상태</th>
+								<td><strong class="">정지중</strong></td>
+							</tr>
+							<tr>
+								<th>운전 모드</th>
+								<td><strong class="">-</strong></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="infozone_02 mt10">
+				<table>
+					<colgroup>
+							<col style="width:30%">
+							<col style="width:auto">
+						</colgroup>
+					<tbody>
+						<tr>
+							<th>운전 제어</th>
+							<td>
+								<a href="#" class="off">운전</a>
+								<a href="#" class="on">정지</a>
+							</td>
+						</tr>
+						<tr>
+							<th>모드 제어</th>
+							<td>
+								<a href="#" class="on">수동</a>
+								<a href="#" class="off">자동</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="infozone04 mt10">
+				<div>
+					<a href="#" class="on">교번 시간(시)</a>
+					<input type="text" name="">
+				</div>
+				<div>
+					<a href="#" class="on">가동비율설정(%)</a>
+					<input type="text" name="">
+				</div>
+			</div>
+			
+			<div class="infozone_03 mt10">
+				<table>
+					<thead>
+						<tr>
+							<th>가동 시간 (분)</th>
+							<th>정지 시간 (분)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<a href="#" class="on">설정</a>
+								<input type="text" name="">
+							</td>
+							<td>
+								<a href="#" class="on">설정</a>
+								<input type="text" name="">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="txt">경과</span>
+								<span class="in_txt">5</span>
+							</td>
+							<td>
+								<span class="txt">경과</span>
+								<span class="in_txt">5</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="btn_area">
+				<a href="#">순시조회</a>
+				<a href="#">운영조회</a>
+			</div>
+		</div>
+		<a href="#" class="layer_close">Close</a>
+	</div>
+</div><!-- //내부반송펌프B -->
+
+<div class="layer" id="sample001Layer"><!-- 배전반 전력량계 -->
+	<div class="layer_wrap">
+			<h1>배전반 전력량계</h1>
+		<div class="layer_body">
+
+			<div class="clear">
+				<div class="img_title">
+					<div class="img_area">	 
+						<img src="./img/BOLT.png" style="width:auto" alt="" />
+					</div>
+					<div class="title">
+						ELEC
+					</div>
+				</div>
+				<div class="infozone_01">
+					<table>
+						<colgroup>
+							<col style="width:55%">
+							<col style="width:auto">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>R상 전류(A)</th>
+								<td><span class="in_txt">5</span></td>
+							</tr>
+							<tr>
+								<th>S상 전류(A)</th>
+								<td><span class="in_txt">5</span></td>
+							</tr>
+							<tr>
+								<th>T상 전류(A)</th>
+								<td><span class="in_txt">5</span></td>
+							</tr>
+							<tr>
+								<th>R상 전압(V)</th>
+								<td><span class="in_txt">5</span></td>
+							</tr>
+							<tr>
+								<th>S상 전압(V)</th>
+								<td><span class="in_txt">5</span></td>
+							</tr>
+							<tr>
+								<th>T상 전압(V)</th>
+								<td><span class="in_txt">5</span></td>
+							</tr>
+							<tr>
+								<th>전력(KW)</th>
+								<td><span class="in_txt">5</span></td>
+							</tr>
+							<tr>
+								<th>역율(%)</th>
+								<td><span class="in_txt">5</span></td>
+							</tr>
+							<tr>
+								<th>전력량(KWH)</th>
+								<td><span class="in_txt">5</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="btn_area">
+				<a href="#" onclick="callPassword()">순시조회</a>
+				<a href="#" onclick="callPassword()">운영조회</a>
+			</div>
+		</div>
+		<a href="#" class="layer_close">Close</a>
+	</div>
+</div><!-- //배전반 전력량계 -->
+
+<div class="layer" id=""><!-- 슬러지 스크래퍼 -->
+	<div class="layer_wrap">
+			<h1>슬러지 스크래퍼#1</h1>
+		<div class="layer_body">
+
+			<div class="clear">
+				<div class="img_title">
+					<div class="img_area">	 
+						<img src="./img/AG02_1.png" style="width:auto" alt="" />
+					</div>
+					<div class="title">
+						R_01
+					</div>
+				</div>
+				<div class="infozone_01">
+					<table>
+						<colgroup>
+							<col style="width:40%">
+							<col style="width:auto">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>경보 상태</th>
+								<td><a href="#" class="off">인지</a></td>
+							</tr>
+							<tr>
+								<th>동작 상태</th>
+								<td><strong class="green">정상</strong></td>
+							</tr>
+							<tr>
+								<th>운영 상태</th>
+								<td><strong class="green">운전중</strong></td>
+							</tr>
+							<tr>
+								<th>운전 모드</th>
+								<td><strong class="">수동</strong></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="infozone_02 mt10">
+				<table>
+					<colgroup>
+							<col style="width:30%">
+							<col style="width:auto">
+						</colgroup>
+					<tbody>
+						<tr>
+							<th>운전 제어</th>
+							<td>
+								<a href="#" class="off">운전</a>
+								<a href="#" class="on">정지</a>
+							</td>
+						</tr>
+						<tr>
+							<th>모드 제어</th>
+							<td>
+								<a href="#" class="on">수동</a>
+								<a href="#" class="off">자동</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			
+			<div class="btn_area">
+				<a href="#">순시조회</a>
+				<a href="#">운영조회</a>
+			</div>
+		</div>
+		<a href="#" class="layer_close">Close</a>
+	</div>
+</div><!-- //슬러지 스크래퍼 -->
+
+<div class="layer" id="sample003Layer"><!-- 반송슬러지밸브 -->
+	<div class="layer_wrap">
+			<h1>반송슬러지밸브</h1>
+		<div class="layer_body">
+
+			<div class="clear">
+				<div class="img_title">
+					<div class="img_area">	 
+						<img src="./img/VALVE_1.png" style="" alt="" />
+					</div>
+					<div class="title">
+						JV_01A
+					</div>
+				</div>
+				<div class="infozone_01">
+					<table>
+						<colgroup>
+							<col style="width:40%">
+							<col style="width:auto">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>경보 상태</th>
+								<td><a href="#" class="off">인지</a></td>
+							</tr>
+							<tr>
+								<th>동작 상태</th>
+								<td><strong class="green">정상</strong></td>
+							</tr>
+							<tr>
+								<th>운영 상태</th>
+								<td><strong class="green">운전중</strong></td>
+							</tr>
+							<tr>
+								<th>운전 모드</th>
+								<td><strong class="">판넬</strong></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="infozone_02 mt10">
+				<table>
+					<colgroup>
+							<col style="width:30%">
+							<col style="width:auto">
+						</colgroup>
+					<tbody>
+						<tr>
+							<th>운전 제어</th>
+							<td>
+								<a href="#" class="off">열림</a>
+								<a href="#" class="on">닫힘</a>
+							</td>
+						</tr>
+						<tr>
+							<th>모드 제어</th>
+							<td>
+								<a href="#" class="on">수동</a>
+								<a href="#" class="off">자동</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="infozone04 mt10">
+				<div>
+					<a href="#" class="on">가동비율설정(%)</a>
+					<input type="text" name="">
+				</div>
+			</div>
+			
+			<div class="infozone_03 mt10">
+				<table>
+					<thead>
+						<tr>
+							<th>열림  시간 (분)</th>
+							<th>닫힘 시간 (분)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<a href="#" class="on">설정</a>
+								<input type="text" name="">
+							</td>
+							<td>
+								<a href="#" class="on">설정</a>
+								<input type="text" name="">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="txt">경과</span>
+								<span class="in_txt">5</span>
+							</td>
+							<td>
+								<span class="txt">경과</span>
+								<span class="in_txt">5</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="btn_area">
+				<a href="#">순시조회</a>
+				<a href="#">운영조회</a>
+			</div>
+		</div>
+		<a href="#" class="layer_close">Close</a>
+	</div>
+</div><!-- //반송슬러지밸브 -->
+
+<div class="layer password" id="passwordLayer"><!-- 제어경고 -->
+	<div class="layer_wrap">
+			<h1>제어 경고</h1>
+		<div class="layer_body">
+			<div class="infozone04 mt10">
+				<div class="pw">
+					<label for="password">패스워드</label>
+					<input type="password" name="">
+				</div>
+			</div>
+			<div class="btn_area">
+				<a href="#">확인</a>
+				<a href="#">취소</a>
+			</div>
+		</div>
+		<a href="#" class="layer_close">Close</a>
+	</div>
+</div><!-- //제어경고 -->
+
+
+</body>
+</html>
+
